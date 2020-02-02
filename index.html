@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+  <link href="./css/style.css">
+</head>
+
+<body>
+
+  <main id="app">
+    <form>
+      <label for="keyword">Keyword</label>
+      <input type="text" name="keyword" v-model="search" />
+      <label for="source">Source</label>
+      <select name="source" @change="onChange($event)" v-model="withSelect">
+        <option value="">Select</option>
+        <option value="Sputniknews">Sputniknews</option>
+        <option value="Coindesk">Coindesk</option>
+        <option value="The Next Web">The Next Web</option>
+      </select>
+    </form>
+
+    <div v-for="article in filteredList">
+      <article>
+        <h2>{{article.title}}</h2>
+        <p><b>Source: </b>{{article.src}}</p>
+        <p>{{article.desc}}</p>
+      </article>
+    </div>
+  </main>
+
+  <script src="./js/vue.js"></script>
+  <script src="./js/script.js"></script>
+</body>
